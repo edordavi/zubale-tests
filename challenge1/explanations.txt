@@ -1,0 +1,35 @@
+What I do in my python file is I manage all the challenges there as a continuation of the previous one:
+
+- challenge 1: I do the merging of all the data, some renamings that will be useful in the next steps, 
+as changing the id names.
+
+- challenge 2.1: I'm hiding the api_key cause it's mine, jeje.
+    + I get the BRL (the brazilian currency) conversion rate, the api defaults to conversion with USD
+    + I copy the result of the previous dataframe result just to not change the prices currencies
+    + just need to rename columns and apply the new column with the conversion done
+
+- challenge 2.2: is separated on all the different KPIs
+    + I didn't understand quite well how to share every metric or KPI in a single CSV as they
+        have different structures and meanings that can't be shared on a single CSV, 
+        but I just appended all the KPIs on the same CSV as the intructions say to share only one CSV,
+        I separated the KPI with "##"
+    + I just used the to_csv() function again but with append mode on the subsequent KPIs
+    + each KPI needs a different GroupBy and a different Aggregation that's done on each step.
+
+- challenge 3: I do all the object creation on a the python file as detailed as possible. 
+    Password is not a real one, so that's why I didn't do proper good practices, 
+    like environment variables or a secrets service (like AWS secret manager, for example)
+    + the object creation is done by trigerring a SQL script from python
+    + the data filling is also done using python, I don't like using tools like SQLAlchemy or Pandas
+        to do Data Loading as Data Loading is often a batch job and using heavy libraries instead 
+        of taking a little more time to use light libraries may do a huge impact on performance and costs.
+        On a production environment I would use a tool like meltano or a dbt seed.
+    + The actual query is a single SQL file attached to the challenge.
+
+- I'm sharing:
+    + the Python file (challenges.py) that is doing all the challenges related to python and 
+        also all the data object creation and data loading.
+    + the SQL script file (pg-queries.sql) with the schema and table creating queries.
+    + the explanation file (explanations.txt) with the detailed explanation of what I did.
+
+- I used postgres in a docker image and all my code in a Devcontainer using VSCode

@@ -1,0 +1,5 @@
+pandas
+ipykernel
+requests
+dotenv
+psycopg2
